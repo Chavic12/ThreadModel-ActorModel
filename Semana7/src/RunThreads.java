@@ -1,5 +1,5 @@
 public class RunThreads {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
         int[][] mat1Values = {
                 {1, 2},
                 {3, 4},

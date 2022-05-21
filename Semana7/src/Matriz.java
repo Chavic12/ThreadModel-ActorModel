@@ -2,8 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Matriz {
+
     public Matriz multiplyWithThreads(Matriz mat2) throws InterruptedException{
         List<TaskCalcElement> threads;
+
         if(values.length == mat2[0].length){
             int[][] output = new int [values.length][mat2.values[0].length];
             threads = new ArrayList<>();
@@ -23,7 +25,7 @@ public class Matriz {
             }else {
             throw new IllegalArgumentException("No se puede multiplicar");
         }
-        }
+    }
 
     private void setWaitThreads(List<TaskCalcElement> threads) throws InterruptedException{
         for(var t : threads){
