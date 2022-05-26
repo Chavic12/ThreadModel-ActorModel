@@ -15,7 +15,7 @@ public class Matriz {
             for (var i = 0; i < output.length; i++) {
                 for (var j = 0; j < output[0].length; j++) {
                     TaskCalcElement thread = new TaskCalcElement(this, mat2, i, j);
-                    thread.start();
+                    thread.run();
                     threads.add(thread);
                 }
             }
@@ -44,7 +44,6 @@ public class Matriz {
     }
 
     // metodo saca la columna
-
     public int[] getColumn(int colIndex) {
         int[] output = new int[values.length];
         if (colIndex < values[0].length) {
