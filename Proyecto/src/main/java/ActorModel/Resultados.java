@@ -5,11 +5,11 @@ import akka.actor.ActorSystem;
 import akka.actor.Props;
 
 public class Resultados extends AbstractActor {
-    int total;
-    int index;
-    int column;
-    int [][]output;
-    ActorSystem fath;
+    private int total;
+    private int index;
+    private int column;
+    private int [][]output;
+    private ActorSystem fath;
 
     public Resultados(int total, int index, int column, int[][] output, ActorSystem fath) {
         this.total = total;
@@ -23,27 +23,18 @@ public class Resultados extends AbstractActor {
 
     }
     public static Props props(int total, int index, int column, int[][] output,ActorSystem fath) {
+
         return Props.create(Resultados.class, () -> new Resultados(total, index, column, output, fath));
     }
 
     @Override
     public Receive createReceive() {
         output[index][column]=total;
-        imp();
+        Matriz out = new Matriz(output);
+        System.out.println(out);
         fath.terminate();
 
         return receiveBuilder().build();
     }
 
-    public void imp() {
-        String outp = "";
-        for (var fila : output) {
-            outp += "{";
-            for (var value : fila) {
-                outp += value + "\t";
-            }
-            outp += "}\n";
-        }
-        System.out.println("{\n" + outp + "}");
-    }
 }
