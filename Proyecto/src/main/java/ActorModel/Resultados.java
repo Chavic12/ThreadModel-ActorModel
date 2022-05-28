@@ -30,9 +30,14 @@ public class Resultados extends AbstractActor {
     @Override
     public Receive createReceive() {
         output[index][column]=total;
-        Matriz out = new Matriz(output);
-        System.out.println(out);
-        fath.terminate();
+        if(output[2][2]>0 && output[0][0]>0 && output[0][1]>0 && output[0][2]>0 && output[1][0]>0 &&
+                output[1][1]>0 && output[1][2]>0) {
+            fath.terminate();
+            Matriz out = new Matriz(output);
+            System.out.println(out);
+        }
+
+
 
         return receiveBuilder().build();
     }
