@@ -1,4 +1,4 @@
 # ThreadModel-ActorModel
 Integrantes:
-Jhordan Bustamante
-Xavier Chávex
+* Jhordan Bustamante
+* Xavier Chávez
